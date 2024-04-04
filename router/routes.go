@@ -1,8 +1,7 @@
 package router
 
 import (
-	"net/http"
-
+	"github.com/Daniel-Fonseca-da-Silva/Tr-Search-Back-Go/handler"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,30 +9,14 @@ func initializeRoutes(router *gin.Engine) {
 	path := "/api/v1"
 	v1 := router.Group(path)
 	{
-		v1.GET("/user", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "GET user",
-			})
-		})
-		v1.POST("/user", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "POST user",
-			})
-		})
-		v1.DELETE("/user", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "DELETE user",
-			})
-		})
-		v1.PUT("/user", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "PUT user",
-			})
-		})
-		v1.GET("/users", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "GET users",
-			})
-		})
+		v1.GET("/user", handler.ShowUserHandler)
+
+		v1.POST("/user", handler.CreateUserHandler)
+
+		v1.DELETE("/user", handler.DeleteUserHandler)
+
+		v1.PUT("/user", handler.UpdateUserHandler)
+
+		v1.GET("/users", handler.ListUsersHandler)
 	}
 }
