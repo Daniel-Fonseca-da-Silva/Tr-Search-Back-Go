@@ -13,9 +13,9 @@ type Address struct {
 	Email      string `gorm:"type:varchar(60);not null"`
 	Phone      string `gorm:"type:varchar(20);not null"`
 	Address    string `gorm:"type:varchar(255);not null"`
-	FirstName  string `gorm:"type:varchar(100);not null"`
-	LastName   string `gorm:"type:varchar(100);not null"`
-	Telephone  string `gorm:"type:varchar(20);not null"`
+	FirstName  string `gorm:"type:varchar(100);"`
+	LastName   string `gorm:"type:varchar(100);"`
+	Telephone  string `gorm:"type:varchar(20);"`
 	UserID     uint
 	ProductID  uint
 	Seller     []Seller
